@@ -3,6 +3,7 @@ package com.serenitydojo;
 import com.serenitydojo.model.FoodType;
 import org.junit.Test;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import static com.serenitydojo.model.FoodType.*;
@@ -27,6 +28,11 @@ public class WhenWorkingWithMaps {
         //  UK -> London
         //  France -> Paris
         //  Germany -> Berlin
+        countryCapitals = new HashMap<>();
+        countryCapitals.put("UK","London");
+        countryCapitals.put("France","Paris");
+        countryCapitals.put("Germany","Berlin");
+
 
         assertThat(countryCapitals.get("UK")).isEqualTo("London");
         assertThat(countryCapitals.get("France")).isEqualTo("Paris");
@@ -41,6 +47,10 @@ public class WhenWorkingWithMaps {
         //  "cat" -> TUNA
         //  "dog" -> DELUXE_DOG_FOOD
         //  "hamster" -> LETTUCE
+        favoriteFood = new HashMap<>();
+        favoriteFood.put("cat",TUNA );
+        favoriteFood.put("dog", DELUXE_DOG_FOOD);
+        favoriteFood.put("hamster", LETTUCE);
 
         assertThat(favoriteFood.get("cat")).isEqualTo(TUNA);
         assertThat(favoriteFood.get("dog")).isEqualTo(DELUXE_DOG_FOOD);
@@ -55,6 +65,8 @@ public class WhenWorkingWithMaps {
         //  "cat" -> TUNA
         //  "dog" -> DELUXE_DOG_FOOD
         //  "hamster" -> LETTUCE
+        favoriteFood = Map.of("cat",TUNA,"dog", DELUXE_DOG_FOOD,"hamster", LETTUCE);
+
 
         assertThat(favoriteFood.get("cat")).isEqualTo(TUNA);
         assertThat(favoriteFood.get("dog")).isEqualTo(DELUXE_DOG_FOOD);
@@ -73,6 +85,8 @@ public class WhenWorkingWithMaps {
         // TODO: Check that the map contains a key of "dog"
         boolean containsDog = false;
 
+        containsDog = favoriteFood.containsKey("dog");
+
         assertThat(containsDog).isTrue();
     }
 
@@ -87,6 +101,7 @@ public class WhenWorkingWithMaps {
         // TODO: Check that the map contains a value of TUNA
         boolean containsTuna = false;
 
+        containsTuna = favoriteFood.containsValue(TUNA);
         assertThat(containsTuna).isTrue();
     }
 }
